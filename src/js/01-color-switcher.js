@@ -12,13 +12,13 @@ function onChangeBodyColor() {
   startBtn.setAttribute('disabled', true);
 }
 
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
 function createBodyColor() {
   const bodyColor = getRandomHexColor();
   body.style.backgroundColor = bodyColor;
-}
-
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
 stopBtn.addEventListener('click', onStop);
