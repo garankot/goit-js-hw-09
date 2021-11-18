@@ -16,7 +16,7 @@ function onChangeBodyColor() {
 
 function createBodyColor() {
   const bodyColor = getRandomHexColor();
-  bodyRef.style.backgroundColor = bodyColor;
+  body.style.backgroundColor = bodyColor;
 }
 
 function getRandomHexColor() {
