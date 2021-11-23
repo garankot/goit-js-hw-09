@@ -8,13 +8,38 @@ const el = {
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-    resolve({ position, delay });
-  } else {
-    // Reject
-    reject({ position, delay });
+  return new Promise((resolve, reject) => {
+    if (shouldResolve) {
+      // Fulfill
+      resolve({ position, delay });
+      console.log(resolve);
+    } else {
+      // Reject
+      reject({ position, delay });
+      console.log(reject);
+    }
+  });
+}
+
+el.form.addEventListener('submit', onFormSubmit);
+
+function onFormSubmit(event) {
+  event.preventDefault();
+  let delay = Number(el.delay.value);
+  const step = Number(el.step.value);
+  const amount = Number(el.amount.value);
+  for (let i = 1; i <= amount; i++) {
+    delay += step;
+    createPromise(i, delay)
+      .then(({ position, delay }) => {
+        setTimeout(() => {
+          Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        }, delay);
+      })
+      .catch(({ position, delay }) => {
+        setTimeout(() => {
+          Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
+        }, delay);
+      });
   }
 }
-console.log(createPromise);
-createPromise(1000, 2);
