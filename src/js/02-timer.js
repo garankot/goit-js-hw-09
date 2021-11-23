@@ -1,9 +1,8 @@
 import flatpickr from 'flatpickr';
-// Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-const refs = {
+
+const el = {
   input: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('[data-start]'),
   dataDays: document.querySelector('[data-days]'),
@@ -20,16 +19,17 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (Date.now() < selectedDates[0].getTime()) {
-      refs.startBtn.removeAttribute('disabled');
+      el.startBtn.removeAttribute('disabled');
     } else {
       Notify.failure('Please choose a date in the future');
-      refs.startBtn.setAttribute('disabled', 'true');
+      el.startBtn.setAttribute('disabled', 'true');
     }
   },
 };
+
 const timerFlatpickr = flatpickr('#datetime-picker', options);
 
-refs.startBtn.addEventListener('click', onStartBtn);
+el.startBtn.addEventListener('click', onStartBtn);
 
 function onStartBtn() {
   const selectedDate = timerFlatpickr.selectedDates[0];
@@ -38,22 +38,22 @@ function onStartBtn() {
   }
   intervalId = setInterval(() => {
     const currentTime = Date.now();
-    const deltaTime = selectedDate - currentTime;
-    if (deltaTime - delay < 0) {
+    const timeRes = selectedDate - currentTime;
+    if (timeRes - delay < 0) {
       clearInterval(intervalId);
     }
-    const { days, hours, minutes, seconds } = convertMs(deltaTime);
+    const { days, hours, minutes, seconds } = convertMs(timeRes);
     updateTime({ days, hours, minutes, seconds });
   }, delay);
-  refs.startBtn.setAttribute('disabled', 'true');
-  refs.input.setAttribute('disabled', 'true');
+  el.startBtn.setAttribute('disabled', 'true');
+  el.input.setAttribute('disabled', 'true');
 }
 
 function updateTime({ days, hours, minutes, seconds }) {
-  refs.dataDays.textContent = `${days}`;
-  refs.dataHours.textContent = `${hours}`;
-  refs.dataMinutes.textContent = `${minutes}`;
-  refs.dataSeconds.textContent = `${seconds}`;
+  el.dataDays.textContent = `${days}`;
+  el.dataHours.textContent = `${hours}`;
+  el.dataMinutes.textContent = `${minutes}`;
+  el.dataSeconds.textContent = `${seconds}`;
 }
 
 function addLeadingZero(value) {
