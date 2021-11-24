@@ -1,37 +1,8 @@
+#Junk
+.DS_Store
+.vscode/
+.idea/
 
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@garankot
-garankot /
-goit-js-hw-09
-Public
-
-1
-0
-
-    0
-
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-
-    Settings
-
-goit-js-hw-09/.gitignore
-@garankot
-garankot Initial commit
-Latest commit 0be7fd0 8 days ago
-History
-1 contributor
-104 lines (76 sloc) 1.57 KB
 # Logs
 logs
 *.log
@@ -114,6 +85,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
+# dist
 
 # Gatsby files
 .cache/
@@ -135,19 +107,3 @@ typings/
 
 # TernJS port file
 .tern-port
-
-    © 2021 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
-Loading complete
