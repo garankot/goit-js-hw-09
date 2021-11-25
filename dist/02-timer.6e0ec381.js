@@ -195,7 +195,7 @@ exports.defaults = defaults;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.english = void 0;
+exports.english = exports.default = void 0;
 const english = {
   weekdays: {
     shorthand: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
@@ -245,8 +245,9 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.arrayify = void 0;
 exports.debounce = debounce;
-exports.arrayify = exports.int = exports.pad = void 0;
+exports.pad = exports.int = void 0;
 
 const pad = (number, length = 2) => `000${number}`.slice(length * -1);
 
@@ -273,12 +274,12 @@ exports.arrayify = arrayify;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.toggleClass = toggleClass;
-exports.createElement = createElement;
 exports.clearNode = clearNode;
-exports.findParent = findParent;
+exports.createElement = createElement;
 exports.createNumberInput = createNumberInput;
+exports.findParent = findParent;
 exports.getEventTarget = getEventTarget;
+exports.toggleClass = toggleClass;
 
 function toggleClass(elem, className, bool) {
   if (bool === true) return elem.classList.add(className);
@@ -341,7 +342,7 @@ function getEventTarget(event) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formats = exports.tokenRegex = exports.revFormat = exports.monthToStr = void 0;
+exports.tokenRegex = exports.revFormat = exports.monthToStr = exports.formats = void 0;
 
 var _utils = require("../utils");
 
@@ -487,8 +488,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.compareDates = compareDates;
 exports.compareTimes = compareTimes;
+exports.duration = exports.createDateParser = exports.createDateFormatter = void 0;
 exports.getDefaultHours = getDefaultHours;
-exports.duration = exports.isBetween = exports.createDateParser = exports.createDateFormatter = void 0;
+exports.isBetween = void 0;
 
 var _formatting = require("./formatting");
 
@@ -3218,12 +3220,13 @@ function onStartBtn() {
   el.input.setAttribute('disabled', 'true');
 }
 
-function updateTime({
-  days,
-  hours,
-  minutes,
-  seconds
-}) {
+function updateTime(_ref) {
+  let {
+    days,
+    hours,
+    minutes,
+    seconds
+  } = _ref;
   el.dataDays.textContent = `${days}`;
   el.dataHours.textContent = `${hours}`;
   el.dataMinutes.textContent = `${minutes}`;
@@ -3283,7 +3286,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61045" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55293" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

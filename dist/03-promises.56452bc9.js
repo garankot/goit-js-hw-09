@@ -747,17 +747,19 @@ function onFormSubmit(event) {
 
   for (let i = 1; i <= amount; i++) {
     console.log(delay);
-    createPromise(i, delay).then(({
-      position,
-      delay
-    }) => {
+    createPromise(i, delay).then(_ref => {
+      let {
+        position,
+        delay
+      } = _ref;
       setTimeout(() => {
         _notiflixNotifyAio.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       }, delay);
-    }).catch(({
-      position,
-      delay
-    }) => {
+    }).catch(_ref2 => {
+      let {
+        position,
+        delay
+      } = _ref2;
       setTimeout(() => {
         _notiflixNotifyAio.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       }, delay);
@@ -793,7 +795,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61045" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55293" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
