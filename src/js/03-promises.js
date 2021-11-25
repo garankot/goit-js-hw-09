@@ -29,7 +29,7 @@ function onFormSubmit(event) {
   const step = Number(el.step.value);
   const amount = Number(el.amount.value);
   for (let i = 1; i <= amount; i++) {
-    delay += step;
+    console.log(delay);
     createPromise(i, delay)
       .then(({ position, delay }) => {
         setTimeout(() => {
@@ -41,5 +41,6 @@ function onFormSubmit(event) {
           Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
         }, delay);
       });
+    delay += step;
   }
 }

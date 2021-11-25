@@ -746,7 +746,7 @@ function onFormSubmit(event) {
   const amount = Number(el.amount.value);
 
   for (let i = 1; i <= amount; i++) {
-    delay += step;
+    console.log(delay);
     createPromise(i, delay).then(({
       position,
       delay
@@ -762,6 +762,7 @@ function onFormSubmit(event) {
         _notiflixNotifyAio.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       }, delay);
     });
+    delay += step;
   }
 }
 },{"notiflix/build/notiflix-notify-aio":"../node_modules/notiflix/build/notiflix-notify-aio.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -792,7 +793,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61546" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61045" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
